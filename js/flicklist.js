@@ -9,7 +9,7 @@ var model = {
 var api = {
 
   root: "https://api.themoviedb.org/3",
-  token: "TODO", // TODO 0 add your api key
+  token: "8e888fa39ec243e662e1fb738c42ae99", // TODO 0 add your api key
 
   /**
    * Given a movie object, returns the url to its poster image
@@ -81,7 +81,15 @@ function render() {
     // TODO 1 
     // add an "I watched it" button and append it below the title
     // Clicking should remove this movie from the watchlist and re-render
-
+    var button  = $("<button></button>")
+	.text("I watched it")
+	.click(function(){
+		//remove this movie from the model
+		var index = model.watchlistItems.indexOf(movie);
+		model.watchlistItems.splice(index, 1);
+		//render
+		render();
+	});
     // TODO 2i
     // apply the classes "btn btn-danger" to the "I watched it button"
 
